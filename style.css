@@ -1,0 +1,369 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+:root {
+    --lime: hsl(61, 70%, 52%);
+    --lime-light: hsl(61, 70%, 82%); /* Add this */
+
+    --red: hsl(4, 69%, 50%);
+
+    --white: hsl(0, 0%, 100%);
+    --slate_100: hsl(202, 86%, 94%);
+    --slate_300: hsl(203, 41%, 72%);
+    --slate_500: hsl(200, 26%, 54%);
+    --slate_700: hsl(200, 24%, 40%);
+    --slate_900: hsl(202, 55%, 16%);
+    --slate_1000: hsl(200, 56%, 13%);
+}
+
+body {
+    background-color: var(--slate_100);
+    /*max-width: 1440px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-weight: 500;
+}
+
+body h3 {
+    font-size: 16px;
+    color: var(--slate_700);
+}
+
+.container {
+    display: flex;
+    background-color: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.form-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /*flex-grow: 1;*/
+    /*flex-basis: 0;*/
+    padding: 35px;
+    /*max-width: 60%;*/
+}
+
+/*.form-section .input-with-symbol {*/
+/*    border: 1pt, solid, var(--slate_500);*/
+/*    border-radius: 3px;*/
+/*    padding: 8px;*/
+/*}*/
+
+.top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.clear-all-btn {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    color: var(--slate_500);
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.clear-all-btn:hover {
+    color: var(--slate_700);
+}
+
+.clear-all-btn:focus {
+    outline: 2px solid var(--lime);
+    outline-offset: 2px;
+}
+
+
+.mid-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.input-wrapper h3 {
+    margin: 2rem 0  0.7rem 0;
+}
+
+.mid-row .input-wrapper {
+    flex: 1;
+}
+
+.error-message {
+    color: var(--red);
+    font-size: .875rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.input-with-symbol {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--slate_500);
+    border-radius: 4px;
+}
+
+.input-with-symbol[data-error="true"] {
+    border-color: var(--red);
+}
+
+.input-with-symbol[data-error="true"] .symbol {
+    background-color: var(--red);
+    color: var(--white);
+    border-color: var(--red);
+}
+
+.input-with-symbol:hover{
+    border: 1px solid var(--slate_700);
+    cursor: pointer;
+}
+
+.input-with-symbol input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    color: var(--slate_900);
+    border: none;
+    border-radius: 4px;
+    font-size: 14pt;
+    font-weight: 700;
+}
+
+.input-with-symbol input:hover{
+    cursor: pointer;
+}
+
+.input-with-symbol .symbol {
+    position: absolute;
+    left: 0;
+    background-color: var(--slate_100);
+    padding: 0 1rem;
+    font-weight: 700;
+    color: var(--slate_700);
+    border-radius: 4px 0 0 4px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: none;
+    /*overflow: hidden;*/
+}
+
+.input-with-symbol input:focus {
+    outline: none;
+}
+
+.input-with-symbol:focus-within {
+    border-color: var(--lime);
+}
+
+.input-with-symbol:focus-within .symbol {
+    background-color: var(--lime);
+    color: var(--slate_900);
+}
+
+
+.input-with-symbol .symbol.right {
+    left: auto;
+    right: 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.input-with-symbol:has(.symbol.right) input {
+    padding: 0.75rem 3rem 0.75rem 1rem;
+}
+
+
+.mortgage-type-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 35px;
+}
+
+
+
+.mortgage-type-selector h3 {
+    margin: 2rem 0 0.2rem 0;
+}
+
+.radio-border {
+    display: flex;
+    align-items: center;
+    /*justify-content: flex-start;*/
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    color: var(--slate_900);
+    /*border: none;*/
+    border-radius: 4px;
+    border: 1px solid var(--slate_500);
+    transition: border 0.2s ease;
+}
+
+.radio-border, input, label:hover{
+    cursor: pointer;
+}
+
+.radio-border:hover{
+    border: 1px solid var(--lime);
+}
+
+.radio-border:has(input[type="radio"]:checked) {
+    background-color: var(--lime-light);
+    border: 1px solid var(--lime);
+}
+
+input[type="radio"]:checked {
+    accent-color: var(--lime);
+}
+
+.calculate-button {
+    background-color: var(--lime);
+    color: var(--slate_900);
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 20px;
+    width: 65%;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.calculate-button:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.output-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--slate_900);
+    color: var(--slate_300);
+    padding: 35px;
+    border-bottom-left-radius: 80px;
+}
+
+.results-empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.results-complete {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    height: 100%;
+}
+
+.output-amounts {
+    background: var(--slate_1000);
+    border-top: 3pt solid var(--lime);
+    border-radius: 5pt;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.monthly-payment {
+    color: var(--lime);
+    font-size: 35px;
+    /*margin-bottom: 10rem;*/
+}
+
+.total-payments {
+    margin-top: 2rem;
+
+    border-top: 1px solid var(--slate_300);
+}
+
+.loan-value {
+    color: var(--slate_100);
+    font-size: 20px;
+}
+
+
+
+.output-section h2{
+    color: var(--white);
+}
+
+.output-section h3{
+    color: var(--slate_100);
+    font-size: 20px;
+}
+
+
+.output-section p{
+    display: block;
+}
+
+.results-empty img {
+    height: 150px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 375px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .form-section {
+        max-width: 100%;
+        /*border-radius: 20px 20px 0 0;*/
+    }
+
+    .calculate-button {
+        width: 100%;
+    }
+
+    .mid-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+
+        justify-content: flex-start;
+    }
+
+    .top-row h2 {
+        font-size: 24px;
+    }
+
+    .container {
+        border-radius: 0px;
+    }
+
+    .output-section {
+        border-bottom-left-radius: 0px;
+    }
+}
+
